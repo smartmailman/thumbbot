@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Thumbbot by vdemedes</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Thumbbot</h1>
+        <p>Create thumbnails from images, video, audio and web pages.</p>
+        <p class="view"><a href="https://github.com/vdemedes/thumbbot">View the Project on GitHub <small>vdemedes/thumbbot</small></a></p>
+        <ul>
+          <li><a href="https://github.com/vdemedes/thumbbot/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/vdemedes/thumbbot/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/vdemedes/thumbbot">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Thumbbot</h1>
+
+<p>Create thumbnails from images, videos, audio(google images search) and web pages.</p>
+
+<h1>Installation</h1>
+
+<p><code>npm install thumbbot</code></p>
+
+<h1>Requirements</h1>
+
+<ul>
+<li>PhantomJS - web page snapshots</li>
+<li>ImageMagick - image thumbnails</li>
+<li>ffmpeg - video snapshots</li>
+</ul><h1>Usage</h1>
+
+<div class="highlight">
+<pre><span class="nv">Thumbbot = </span><span class="nx">require</span> <span class="s">'thumbbot'</span>
+
+<span class="c1"># Images</span>
+
+<span class="nv">bot = </span><span class="k">new</span> <span class="nx">Thumbbot</span> <span class="s">'image.png'</span><span class="p">,</span> <span class="s">'image_thumb.png'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">width: </span><span class="mi">200</span><span class="p">,</span> <span class="nv">height: </span><span class="mi">150</span>
+
+<span class="c1"># Resizing</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">method: </span><span class="s">'resize'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">snap</span> <span class="nf">(err) -&gt;</span>
+    <span class="c1"># done</span>
+
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">method: </span><span class="s">'crop'</span><span class="p">,</span> <span class="nv">x: </span><span class="mi">0</span><span class="p">,</span> <span class="nv">y: </span><span class="mi">0</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">snap</span> <span class="nf">(err) -&gt;</span>
+    <span class="c1"># done</span>
+
+<span class="c1"># Videos</span>
+
+<span class="nv">bot = </span><span class="k">new</span> <span class="nx">Thumbbot</span> <span class="s">'video.mp4'</span><span class="p">,</span> <span class="s">'video_thumb.png'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">width: </span><span class="mi">200</span><span class="p">,</span> <span class="nv">height: </span><span class="mi">150</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">position: </span><span class="s">'00:05:04'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">snap</span> <span class="nf">(err) -&gt;</span>
+    <span class="c1"># done</span>
+
+<span class="c1"># Audio</span>
+
+<span class="nv">bot = </span><span class="k">new</span> <span class="nx">Thumbbot</span> <span class="s">'Great Nas Song.mp3'</span><span class="p">,</span> <span class="s">'nas.png'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">width: </span><span class="mi">200</span><span class="p">,</span> <span class="nv">height: </span><span class="mi">150</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">snap</span> <span class="nf">(err) -&gt;</span>
+    <span class="c1"># done</span>
+
+<span class="c1"># Web pages</span>
+
+<span class="nv">bot = </span><span class="k">new</span> <span class="nx">Thumbbot</span> <span class="s">'<a href="http://google.com">http://google.com</a>'</span><span class="p">,</span> <span class="s">'google.png'</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">set</span> <span class="nv">width: </span><span class="mi">200</span><span class="p">,</span> <span class="nv">height: </span><span class="mi">150</span>
+<span class="c1"># You can apply same techniques here for resizing or cropping the resulting image</span>
+<span class="nx">bot</span><span class="p">.</span><span class="nx">snap</span> <span class="nf">(err) -&gt;</span>
+    <span class="c1"># done</span>
+
+</pre>
+</div>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/vdemedes">vdemedes</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
